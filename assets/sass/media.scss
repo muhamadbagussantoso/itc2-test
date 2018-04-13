@@ -1,0 +1,425 @@
+@import "global";
+@import "style";
+
+
+.content-wrapper {
+
+  padding-top: 50px !important;
+	
+  @include respond-to(mobile-screens) { }
+  @include respond-to(tab-screens) { }
+  @include respond-to(medium-screens) { }
+  @include respond-to(wide-screens) { }
+
+    & > .content {
+
+      padding: 0px !important;
+      padding-right: 30px;
+
+      @include respond-to(mobile-screens) { }
+      @include respond-to(tab-screens) { }
+      @include respond-to(medium-screens) { }
+      @include respond-to(wide-screens) { }
+
+        & > .content-row {
+
+          padding: 0px;
+          border-bottom: 1px dashed #d7d7d7;
+          height: auto;
+
+          @include respond-to(mobile-screens) { }
+          @include respond-to(tab-screens) { }
+          @include respond-to(medium-screens) { }
+          @include respond-to(wide-screens) { }
+
+          & > .title {
+
+             font: {
+             	family: $ws-medium;
+             }
+             @include font-size(1.5);
+             color: #2d2d2d;
+             margin-bottom: 30px;
+          }
+
+          &.headlines {
+
+             border-bottom: 1px dashed #d7d7d7;
+             padding-right: 30px;
+
+             @include respond-to(mobile-screens) { }
+             @include respond-to(tab-screens) { }
+             @include respond-to(medium-screens) { }
+             @include respond-to(wide-screens) { }
+
+             &  .content {
+
+                 z-index: 2;
+                 position: absolute;
+                 bottom: 0px;
+                 padding: 30px;
+
+                 @include respond-to(mobile-screens) { }
+                 @include respond-to(tab-screens) { }
+                 @include respond-to(medium-screens) { }
+                 @include respond-to(wide-screens) { }
+
+                 & > span {
+                     display:block;
+                 }
+
+                 &  .title {
+
+                     @include respond-to(mobile-screens) { }
+                     @include respond-to(tab-screens) { }
+                     @include respond-to(medium-screens) { }
+                     @include respond-to(wide-screens) { }
+
+                     &  .desc {
+
+                         font: {
+                            family: $os-semibold;
+                            weight: 500;
+                         }
+                         @include line-height(32);
+                         @include font-size(0.8);
+                         color:$content-title;
+                         margin-right: 50px;
+
+                         @include respond-to(mobile-screens) { }
+                         @include respond-to(tab-screens) { }
+                         @include respond-to(medium-screens) { }
+                         @include respond-to(wide-screens) { }
+                     }
+                     &  .date {
+
+                         font: {
+                            family: $os-semibold;
+                            weight: 500;
+                         }
+                         @include line-height(32);
+                         @include font-size(0.8);
+                         color:$gray;
+                         margin-right: 50px;
+
+                         @include respond-to(mobile-screens) { }
+                         @include respond-to(tab-screens) { }
+                         @include respond-to(medium-screens) { }
+                         @include respond-to(wide-screens) { }
+                     }
+                 }
+
+                 &  .desc {
+
+                     font: {
+                     	family: $ws-regular;
+                     	weight: 500;
+                     }
+                     @include line-height(32);
+                     @include font-size(1.3);
+                     color:$darkCyanB;
+
+                     @include respond-to(mobile-screens) { }
+                     @include respond-to(tab-screens) { }
+                     @include respond-to(medium-screens) { }
+                     @include respond-to(wide-screens) { }
+                 }
+
+             }
+
+             &  .headlines-banner {
+
+                 padding-left: 0px !important;
+                 margin-bottom: 50px;
+
+                 @include respond-to(mobile-screens) { }
+                 @include respond-to(tab-screens) { }
+                 @include respond-to(medium-screens) { }
+                 @include respond-to(wide-screens) { }
+
+                 &  .img {
+
+                     @include respond-to(mobile-screens) { }
+                     @include respond-to(tab-screens) { }
+                     @include respond-to(medium-screens) { }
+                     @include respond-to(wide-screens) { }
+
+                     &  img {
+
+                         width: 100%;
+                         max-width: 100%;
+                         border-radius: 10px;
+                         object-fit:cover;
+
+                         @include respond-to(mobile-screens) { }
+                         @include respond-to(tab-screens) { }
+                         @include respond-to(medium-screens) { }
+                         @include respond-to(wide-screens) { }
+                    }
+                 }
+
+                 & > .overlay-news {
+
+                     @include respond-to(mobile-screens) { }
+                     @include respond-to(tab-screens) { }
+                     @include respond-to(medium-screens) { }
+                     @include respond-to(wide-screens) { }
+                 }
+             }
+
+             &  .headlines-content {
+                   
+                 padding: 0px !important; 
+
+                 &  .headlines-rows {
+
+                     padding: 0px !important; 
+                     margin-bottom: 35px; 
+
+                     & > .img {
+
+                         margin-right: 15px;
+
+
+                         & img {
+
+                            width: 100%;
+                            max-width: 100%;
+                            border-radius: 10px;
+                            object-fit: cover;
+                            height: 150px;
+
+                         }
+                     }
+
+                     & .content {
+
+                        position: inherit;
+                        padding: 10px 20px !important;
+
+                        & > .title {
+
+                        	& .date {
+                        		margin:0px;
+                        	}
+                        }
+
+                        & > .desc {
+
+
+                        	@include font-size(1.02);
+                        	@include line-height(26);
+                        }
+
+                        & > .more {
+
+                             display:block;
+
+                             @include respond-to(mobile-screens) { }
+                             @include respond-to(tab-screens) { }
+                             @include respond-to(medium-screens) { }
+                             @include respond-to(wide-screens) {
+                               @include font-size(0.8);
+                             }
+
+                             & span {
+    
+                                 font: {
+                                     family: $os-semibold;
+                                 }
+                                 display: inline-block;
+                                 margin-right: 10px;
+                                 color:#279b9a;
+                                 @include font-size(0.9);
+                             }
+
+                             & > .img img {
+
+                                 max-width: 16px;
+                             }
+				        }
+             	     }
+
+             	     
+             	}
+             }
+          }
+
+          &.news {
+
+             margin-top: 45px;
+             border-bottom: unset;
+             padding-right: 40px;
+             margin-bottom: 35px;
+
+             @include respond-to(mobile-screens) { }
+             @include respond-to(tab-screens) { }
+             @include respond-to(medium-screens) { }
+             @include respond-to(wide-screens) { }
+
+             & div {
+
+                padding: 0px;
+             }
+
+             & .news-row {
+
+             	margin-bottom: 	35px;
+             }
+
+             & .left {
+
+			     @include respond-to(mobile-screens) { }
+			     @include respond-to(tab-screens) { }
+			     @include respond-to(medium-screens) { }
+			     @include respond-to(wide-screens) { }
+
+			     & > .img {
+
+			        background-color: #f2f2f2;
+			        margin: auto;
+			        border-radius: 5px;
+			        width: 270px;
+			        height: 150px;
+
+			        @include respond-to(mobile-screens) { }
+			        @include respond-to(tab-screens) { }
+			        @include respond-to(medium-screens) { }
+			        @include respond-to(wide-screens) {
+			          width: 100%;
+			          height: 100%;
+			        }
+
+			        & > img {
+			          width: 100%;
+			          max-width: 100%;
+			          margin: auto;
+			          height: 100%;
+			          object-fit: cover;
+			          max-height: 150px;
+
+			          @include respond-to(mobile-screens) { }
+			          @include respond-to(tab-screens) { }
+			          @include respond-to(medium-screens) { }
+			          @include respond-to(wide-screens) {
+
+			            object-fit: contain;
+			          }
+			        }
+			    }
+			 }
+
+			 & .right {
+
+			     padding-left: 20px;
+
+			     @include respond-to(mobile-screens) { }
+			     @include respond-to(tab-screens) { }
+			     @include respond-to(medium-screens) { }
+			     @include respond-to(wide-screens) {
+			     	padding-right: 25px;
+			     }
+
+			     & > div {}
+
+			     & > .categories {
+
+			     	font: {
+			           family: $os-semibold;
+			         }
+			         @include font-size(0.89);
+			         color: $content-title;
+			         text-transform: uppercase;
+			         display: inline-block;
+
+			         @include respond-to(mobile-screens) { }
+			         @include respond-to(tab-screens) { }
+			         @include respond-to(medium-screens) { }
+			         @include respond-to(wide-screens) {
+						@include font-size(0.9);
+				     }
+
+			     }
+
+			     & > .date {
+
+			         font: {
+			           family: $os-semibold;
+			         }
+			         @include font-size(0.89);
+			         color: $gray;
+			         text-transform: uppercase;
+			         display: inline-block;
+
+			         @include respond-to(mobile-screens) { }
+			         @include respond-to(tab-screens) { }
+			         @include respond-to(medium-screens) { }
+			         @include respond-to(wide-screens) {
+						@include font-size(0.9);
+				     }
+
+				     &.all {
+				     	float: right;
+				     }
+
+
+			      }
+
+			     & > .desc {
+
+			    	 font: {
+			          family: $ws-regular;
+			         }
+			         @include font-size(1.05);
+			         color: $content-desc;
+			         height: 80px;
+			         display: block;
+			         margin-top: 10px;
+
+				 	 @include respond-to(mobile-screens) { }
+					 @include respond-to(tab-screens) { }
+					 @include respond-to(medium-screens) { }
+					 @include respond-to(wide-screens) {
+						height: auto;
+						@include font-size(0.9);
+					 }
+
+			     }
+
+
+			     & > .more {
+
+			    	 margin-top: 10px;
+			    	 display:block;
+					 font: {
+				  	  family: $os-regular;
+					  size: 14px;
+					 }
+
+					 color:$darkCyan;
+
+					 @include respond-to(mobile-screens) { }
+					 @include respond-to(tab-screens) { }
+					 @include respond-to(medium-screens) { }
+					 @include respond-to(wide-screens) {
+						@include font-size(0.8);
+					 }
+
+					 & span {
+
+					  display: inline-block;
+					  margin-right: 10px;
+				 	 }
+
+					 & > .img img {
+					    max-width: 16px;
+					 }
+			     }
+			 }
+
+          }
+
+        }
+
+    }
+}

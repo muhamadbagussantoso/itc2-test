@@ -1,0 +1,295 @@
+/* ---------------------------------------------------
+  FONT IMPORT
+----------------------------------------------------- */
+@font-face {font-family: 'Wsb';src: url(../../font/WorkSans-Black.woff);}
+@font-face {font-family: 'WsB';src: url(../../font/WorkSans-Bold.woff);}
+@font-face {font-family: 'WsEB';src: url(../../font/WorkSans-ExtraBold.woff);}
+@font-face {font-family: 'WsEL';src: url(../../font/WorkSans-ExtraLight.woff);}
+@font-face {font-family: 'WsL';src: url(../../font/WorkSans-Light.woff);}
+@font-face {font-family: 'WorkSans Medium';src: url(../../font/WorkSans-Medium.woff);}
+@font-face {font-family: 'WorkSans Regular';src: url(../../font/WorkSans-Regular.woff);}
+@font-face {font-family: 'WorkSans Semibold';src: url(../../font/WorkSans-Semibold.woff);}
+@font-face {font-family: 'WsT';src: url(../../font/WorkSans-Thin.woff);}
+
+@font-face {font-family: 'OpenSans Bold';src: url(../../font/OpenSans-Bold.ttf);}
+@font-face {font-family: 'OsBI';src: url(../../font/OpenSans-BoldItalic.ttf);}
+@font-face {font-family: 'OsEB';src: url(../../font/OpenSans-ExtraBold.ttf);}
+@font-face {font-family: 'OsEBI';src: url(../../font/OpenSans-ExtraBoldItalic.ttf);}
+@font-face {font-family: 'OsI';src: url(../../font/OpenSans-Italic.ttf);}
+@font-face {font-family: 'OsL';src: url(../../font/OpenSans-Light.ttf);}
+@font-face {font-family: 'OsLI';src: url(../../font/OpenSans-LightItalic.ttf);}
+@font-face {font-family: 'OpenSans Regular';src: url(../../font/OpenSans-Regular.ttf);}
+@font-face {font-family: 'OpenSans Semibold';src: url(../../font/OpenSans-Semibold.ttf);}
+@font-face {font-family: 'WsT';src: url(../../font/OpenSans-SemiboldItalic.ttf);}
+
+$ws-semibold : 'WorkSans Semibold';
+$ws-black : 'Wsb';
+$ws-Bold : 'WsB';
+$ws-extrabold : 'WsEB';
+$ws-extralight: 'WsEL';
+$ws-Light : 'WsL';
+$ws-medium : 'WorkSans Medium';
+$ws-regular : 'WorkSans Regular';
+$ws-thin : 'WsT';
+
+$os-bold : 'OpenSans Bold';
+$os-boldItalic : 'OsBI';
+$os-extraBold : 'OsEB';
+$os-extraBoldItalic : 'OsEBI';
+$os-italic: 'OsI';
+$os-light : 'OsL';
+$os-lightItalic : 'OsLI';
+$os-regular : 'OpenSans Regular';
+$os-semibold : 'OpenSans Semibold';
+$os-semiboldItalic : 'OsSBI'; 
+$font-calc:0;
+
+/* ---------------------------------------------------
+  MEDIA
+----------------------------------------------------- */
+$break-mobile: 320px;
+$break-tab: 768px;
+$break-medium: 1024px;
+$break-wide: 1366px;
+$break-large:1920px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-mobile -1) { @content; }
+  }
+  @else if $media == mobile-screens {
+    @media only screen and (min-width: 0) and (max-width: $break-medium - 1) { @content; }
+  }
+  @else if $media == tab-screens {
+    @media only screen and (min-width: $break-tab) and (max-width: $break-medium -1) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-medium ) and (max-width: $break-wide - 1)  { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-wide) and (max-width: $break-large - 1)  { @content; }
+  }
+  @else if $media == large-screens {
+    @media only screen and (min-width: $break-large){ @content; }
+  }
+}
+
+@include respond-to(handhelds) {}
+@include respond-to(mobile-screens) { }
+@include respond-to(tab-screens) { }
+@include respond-to(medium-screens) { }
+@include respond-to(wide-screens) { }
+@include respond-to(large-screens) {}
+  
+body,html{height: 100%;margin:0;}
+
+body{
+
+  font-family: $ws-regular;
+  font-size:13px;
+
+  @include respond-to(handhelds) {
+    font-size:8px;
+  }
+
+  @include respond-to(mobile-screens) {
+    font-size:10px;
+  }
+
+  @include respond-to(tab-screens) {
+    font-size:12px;
+  }
+
+  @include respond-to(medium-screens) {
+    font-size:14px;
+  }
+
+  @include respond-to(wide-screens) {
+    font-size:17px;
+  }
+  
+  @include respond-to(large-screens) {
+     font-size:17px;
+  }
+
+}
+/* ---------------------------------------------------
+  FONT
+----------------------------------------------------- */
+
+
+$btn-font-sizes: (
+  null  : 10,
+  $break-mobile : 11,
+  $break-wide: 17,
+  $break-large: 17
+);
+
+@mixin btn-font-sizes($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: #{$fs-font-size}px;
+    }
+    @else {
+        
+      @media screen and (min-width: $fs-breakpoint) {
+      font-size: #{$fs-font-size}px;
+      }
+
+    }
+  }
+}
+@mixin font-size($size) {
+    @include respond-to(handhelds) {
+        font-size: calc(#{$size}em - 0.5em) !important;
+      }
+    @include respond-to(mobile-screens) { 
+      font-size: calc(#{$size}em - 0.3em) !important;
+    }
+    @include respond-to(tab-screens) { 
+      
+      font-size: calc(#{$size}em - 0.3em) !important;
+    }
+    @include respond-to(medium-screens) { 
+      font-size: calc(#{$size}em - 0.2em) !important;
+    }
+    @include respond-to(wide-screens) {
+        font-size: calc(#{$size}em - 0.1em) !important;
+        @at-root .swiper-slide--content .title{
+            font-size: 40px !important;
+            line-height: 40px !important;
+        }
+
+    }
+    @include respond-to(large-screens) { 
+        font-size: calc(#{$size}em - 0em  ) !important;
+    }
+
+}
+@mixin line-height($size) {
+    @include respond-to(handhelds) {
+       line-height: calc(#{$size}px - 2px) !important;}
+    @include respond-to(mobile-screens) { 
+      line-height: calc(#{$size}px - 4px) !important;
+    } 
+    @include respond-to(medium-screens) { 
+    }
+    @include respond-to(wide-screens) {
+       line-height: calc(#{$size}px - 2px) !important;
+    }
+    @include respond-to(large-screens) { 
+       line-height: calc(#{$size}px - 0px) !important;
+    }
+
+}
+
+$content-title: #159492;
+$content-titleDesc:#7b7b7b;
+$content-desc: #274948;
+$border-color: 1px solid #e5e5e5;
+$color-menubar:#254948;
+$sort-desc: #4f4f4f;
+
+
+@mixin font-footer() {
+  font:{
+    family: $os-regular;
+    size: 15px;
+  }
+    color:#ffffff;
+}
+
+
+/* ---------------------------------------------------
+  TEXT & COLOR
+----------------------------------------------------- */
+
+$darkCyan: #159592;
+$darkCyanB: #274948;
+$cyanR: #119c7e;
+$tosca: #92e8d3;
+$darkCyanS: #169592;
+$white: #ffffff;
+$steelBlue: #156995;
+$orange: #f99903;
+$gray: #9a9a9a;
+$grayDesc:#797e7e;
+$black:#000;
+/* ---------------------------------------------------
+  BUTTON
+----------------------------------------------------- */
+@mixin btn-style($color, $bgcolor, $padding, $width, $height) {
+  @include btn-font-sizes($btn-font-sizes);
+  color: $color;
+  background-color: $bgcolor;
+  padding: $padding;
+  width: $width;
+  height:$height;
+  display: inline-block;
+  font-family: $ws-regular;
+  text-align: center;
+  border-bottom-left-radius: 8px 8px;
+  border-bottom-right-radius: 8px 8px;
+  border-bottom-top-radius: 0px 0px;
+  border-bottom-bottom-radius: 0px 0px;
+  margin-right: auto;
+}
+/* ---------------------------------------------------
+  GRADIENT
+----------------------------------------------------- */
+@mixin gradient-possition(){
+
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: inline-block;
+  opacity:0.8;
+}
+
+@mixin gradient-green--mobile(){
+  background: rgba(0,152,137,1);
+  background: -moz-linear-gradient(top, rgba(0,152,137,1) 0%, rgba(24,173,111,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,152,137,1)), color-stop(100%, rgba(24,173,111,1)));
+  background: -webkit-linear-gradient(top, rgba(0,152,137,1) 0%, rgba(24,173,111,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,152,137,1) 0%, rgba(24,173,111,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,152,137,1) 0%, rgba(24,173,111,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,152,137,1) 0%, rgba(24,173,111,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009889', endColorstr='#18ad6f', GradientType=0 );
+}
+
+@mixin gradient-green() {
+  /* fallback/image non-cover color */
+  background: -moz-linear-gradient(45deg, rgba(26,173,114,1) 0%, rgba(26,173,114,1) 0%, rgba(44,160,155,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(26,173,114,1)), color-stop(0%, rgba(26,173,114,1)), color-stop(100%, rgba(44,160,155,1)));
+  background: -webkit-linear-gradient(45deg, rgba(26,173,114,1) 0%, rgba(26,173,114,1) 0%, rgba(44,160,155,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(26,173,114,1) 0%, rgba(26,173,114,1) 0%, rgba(44,160,155,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(26,173,114,1) 0%, rgba(26,173,114,1) 0%, rgba(44,160,155,1) 100%);
+  background: linear-gradient(45deg, rgba(26,173,114,1) 0%, rgba(26,173,114,1) 0%, rgba(44,160,155,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1aad72', endColorstr='#2ca09b', GradientType=1 );
+  /* background: rgba(0,0,0,0.6); */
+
+}
+@mixin gradient-white() {
+  /* fallback/image non-cover color */
+  background: rgba(248,80,50,0);
+  background: -moz-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(252,252,252,0) 0%, rgba(255,255,255,0.44) 44%, rgba(255,255,255,0.54) 54%, rgba(255,255,255,0.71) 71%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,0)), color-stop(0%, rgba(252,252,252,0)), color-stop(44%, rgba(255,255,255,0.44)), color-stop(54%, rgba(255,255,255,0.54)), color-stop(71%, rgba(255,255,255,0.71)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(252,252,252,0) 0%, rgba(255,255,255,0.44) 44%, rgba(255,255,255,0.54) 54%, rgba(255,255,255,0.71) 71%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(252,252,252,0) 0%, rgba(255,255,255,0.44) 44%, rgba(255,255,255,0.54) 54%, rgba(255,255,255,0.71) 71%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(252,252,252,0) 0%, rgba(255,255,255,0.44) 44%, rgba(255,255,255,0.54) 54%, rgba(255,255,255,0.71) 71%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(248,80,50,0) 0%, rgba(252,252,252,0) 0%, rgba(255,255,255,0.44) 44%, rgba(255,255,255,0.54) 54%, rgba(255,255,255,0.71) 71%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#ffffff', GradientType=0 );  position: absolute;
+  @include gradient-possition();
+  opacity:0.9;
+}
+/* ---------------------------------------------------
+  ICON
+----------------------------------------------------- */
+
+@mixin svg-style($bgcolor) {
+  svg.svg {
+    fill: #{$bgcolor};
+  }
+}

@@ -1,0 +1,78 @@
+@font-face {font-family: 'Wsb';src: url(../../font/WorkSans-Black.woff);}
+@font-face {font-family: 'WsB';src: url(../../font/WorkSans-Bold.woff);}
+@font-face {font-family: 'WsEB';src: url(../../font/WorkSans-ExtraBold.woff);}
+@font-face {font-family: 'WsEL';src: url(../../font/WorkSans-ExtraLight.woff);}
+@font-face {font-family: 'WsL';src: url(../../font/WorkSans-Light.woff);}
+@font-face {font-family: 'Wsm';src: url(../../font/WorkSans-Medium.woff);}
+@font-face {font-family: 'WsR';src: url(../../font/WorkSans-Regular.woff);}
+@font-face {font-family: 'WsSm';src: url(../../font/WorkSans-Semibold.woff);}
+@font-face {font-family: 'WsT';src: url(../../font/WorkSans-Thin.woff);}
+
+@font-face {font-family: 'OsB';src: url(../../font/OpenSans-Bold.ttf);}
+@font-face {font-family: 'OsBI';src: url(../../font/OpenSans-BoldItalic.ttf);}
+@font-face {font-family: 'OsEB';src: url(../../font/OpenSans-ExtraBold.ttf);}
+@font-face {font-family: 'OsEBI';src: url(../../font/OpenSans-ExtraBoldItalic.ttf);}
+@font-face {font-family: 'OsI';src: url(../../font/OpenSans-Italic.ttf);}
+@font-face {font-family: 'OsL';src: url(../../font/OpenSans-Light.ttf);}
+@font-face {font-family: 'OsLI';src: url(../../font/OpenSans-LightItalic.ttf);}
+@font-face {font-family: 'OsR';src: url(../../font/OpenSans-Regular.ttf);}
+@font-face {font-family: 'OsSB';src: url(../../font/OpenSans-Semibold.ttf);}
+@font-face {font-family: 'WsT';src: url(../../font/OpenSans-SemiboldItalic.ttf);}
+
+$ws-semi : 'WsSm';
+$ws-black : 'Wsb';
+$ws-Bold : 'WsB';
+$ws-extrabold : 'WsEB';
+$ws-extralight: 'WsEL';
+$ws-Light : 'WsL';
+$ws-medium : 'Wsm';
+$ws-regular : 'WsR';
+$ws-thin : 'WsT';
+
+$os-bold : 'OsB';
+$os-boldItalic : 'OsBI';
+$os-extraBold : 'OsEB';
+$os-extraBoldItalic : 'OsEBI';
+$os-italic: 'OsI';
+$os-light : 'OsL';
+$os-lightItalic : 'OsLI';
+$os-regular : 'OsR';
+$os-semibold : 'OsSB';
+$os-semiboldItalic : 'OsSBI';
+
+$break-mobile: 320px;
+$break-tab: 768px;
+$break-medium: 1366px;
+$break-large:1920px;
+
+  // @include respond-to(handhelds) {}
+  // @include respond-to(mobile-screens) { }
+  // @include respond-to(tab-screens) { }
+  // @include respond-to(wide-screens) { }
+  // @include respond-to(large-screens) {}
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+  @media only screen and (max-width: $break-mobile) { @content; }
+  
+  }@if $media == mobile-screens {
+     @media only screen and (min-width: $break-mobile + 1) and (max-width: $break-tab - 1) { @content; }
+  }
+  @else if $media == tab-screens {
+  @media only screen and (min-width: $break-tab + 1) and (max-width: $break-medium - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+  @media only screen and (min-width: $break-medium) and (max-width: $break-large - 1)  { @content; }
+  }
+  @else if $media == large-screens {
+  @media only screen and (min-width: $break-large){ @content; }
+  }
+}
+/* How to use media query css , Example :
+.clas-name {
+  width : 100px;
+  @include respond-to(handhelds) { width : 100px;}
+  @include respond-to(medium-screens) { width: 125px; }
+  @include respond-to(wide-screens) {  width: 135px; }
+  @include respond-to(large-screens) {  width: 140px;  }
+} */
