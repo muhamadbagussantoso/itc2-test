@@ -12,7 +12,7 @@ class Products extends CI_Controller {
 	}
 	public function insertProduct($data)
 	{
-
+		var_dump($data);die();
 		
 	}
 }
