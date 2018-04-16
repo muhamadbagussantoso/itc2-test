@@ -166,6 +166,24 @@
 				   totalPrice.push(parseInt(allFields[i][3].replace("$","")));
 				}
 
+				if (totalWeight.reduce(getSum) >1000) {
+
+					// $('.modal-body').html('Berat tidak boleh lebih dari 1000')
+	    // 		    $('#myModal').modal('toggle');
+	    		    
+	    		    alert('Berat tidak boleh lebih dari 1000g');
+	    		    location.reload();
+					return false;
+				}
+				if (totalPrice.reduce(getSum)>251) {
+					
+					// $('.modal-body').html('Total tidak melibihi $250')
+	    		    // $('#myModal').modal('toggle');
+	    		    alert('Total tidak melibihi $250');
+	    		    location.reload();
+					return false;
+				}
+
 				function getSum(total, num) {
 						return total + num;
 				}
@@ -193,7 +211,7 @@
 				         detailShipping	= '201-500gram : $10';
 				        shippingPrice = '10';
 				        break;
-				    case (shippingPrice >= 501):
+				    case (shippingPrice >= 501 && shippingPrice <= 1000):
 				         detailShipping	= '501-1000gram : $15';
 				         shippingPrice = '15';
 				        break;
